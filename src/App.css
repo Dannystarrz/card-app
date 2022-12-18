@@ -1,38 +1,818 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: spaceGrotesk;
+}
+
+.App{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.first-half{
+  background-image: url(/public/bg-main-desktop.png);
+  background-size: cover;
+  height: 100vh;
+  width: 30%;
+}
+
+.second-half{
+  height: 100vh;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form{
+  display: inline-grid;
+  width: auto;
+  height: auto;
+  align-items: center;
+}
+
+label{
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.inputs{
+  height: 38px;
+  width: 280px;
+  font-size: medium;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  padding-left: 8px;
+  margin: 0 0 2px 0;
+  border: 1px rgba(170, 163, 163, 0.651) solid ;
+}
+
+.err {
+  border: 1px red solid;
+  outline: none;
+  
+}
+
+.dateContainer{
+  display: flex;
+  flex-direction: column;
+  width: 138px;
+  height: auto;
+}
+
+.dateCvcLabel{
+  margin: 0 0 4px;
+  height: 11px;
+}
+
+.dateInnerContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateinputs{
+  width: 65px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px rgba(170, 163, 163, 0.651) solid ;
+  margin: 0 0 2px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dateerr{
+  border: red 1px solid;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dateNdCvcContainer{
+  display: flex;
+  height: auto;
+  margin: 8px 0 0 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cvcContainer{
+  height: auto;
+  margin-left: 10px;
+}
+
+.cvcInnerContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.cvcinput{
+  width: 132px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px rgba(170, 163, 163, 0.651) solid ;
+  margin: 0 0 2px 0;
+  text-align: center;
+}
+
+.cvcerr{
+  border: 1px red solid;
+  outline: none;
+}
+
+.error{
+  color: red;
+  font-size: small;
+}
+
+.align{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+.alignn{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+
+
+
+.exp-margin{
+  margin-right: 10px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px rgba(170, 163, 163, 0.651) solid ;
+  padding: 10px;
+}
+
+.exp-date{
+  width: 60px;
+  height:38px;
+  border-radius: 6px;
+  border: 1px rgba(170, 163, 163, 0.651) solid ;
+  padding: 10px;
+}
+
+
+
+::placeholder{
+  padding: 4px 0 4px 10px;
+  font-size: 14px;
+  color: rgba(170, 163, 163, 0.651);
+}
+
+.smal{
+  width: 132px;
+  color: rgba(0, 0, 0, 0.651);
+  padding:4px 0 4px 10px;
+}
+
+.hori-align{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
   color: white;
+  background-color: hsl(278, 68%, 11%);
+  height: 38px;
+  width: 280px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.card-front{
+  background-image: url(/public/bg-card-front.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 3;
+  height: 200px;
+  width: 360px;
+  position: fixed;
+  margin: 120px 0 0 180px;
+  box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-back{
+  background-image: url(/public/bg-card-back.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center;
+  border-radius: 8px;
+  z-index: 4;
+  height: 200px;
+  width: 360px;
+  position: fixed;
+  margin: 340px 0 0 260px;
+  box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
 }
+
+.circle-container{
+  display: flex;
+  align-items: center;
+}
+
+.circle-one{
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.circle-two{
+  height: 20px;
+  width: 20px;
+  border: 0.5px white solid;
+  border-radius: 50%;
+  margin-left: 14px;
+}
+
+.card-num{
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: white;
+  margin: 54px 0 20px 0;
+}
+
+.name-expd{
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  letter-spacing: 1px;
+}
+
+.cvv-number{
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 92px 40px 0 0;
+}
+
+@font-face{
+  font-family: spaceGrotesk;
+  src: url(https://fonts.google.com/specimen/Space+Grotesk);
+}
+
+/* @media screen and (min-width: 2560px){
+
+  input{
+    height: 88px;
+    width: 680px;
+    font-size: xx-large;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    padding-left: 8px;
+    margin: 0 0 18px 0;
+    border: 1px rgba(170, 163, 163, 0.651) solid ;
+  }
+  
+  ::placeholder{
+    padding: 4px 0 4px 10px;
+    font-size: 24px;
+    color: rgba(170, 163, 163, 0.651);
+  }
+  
+  .smal{
+    width: 332px;
+    color: rgba(0, 0, 0, 0.651);
+    padding:4px 0 4px 10px;
+  }
+
+  label{
+    font-size: xx-large;
+  }
+
+  .btn{
+    font-size: xx-large;
+    height: 88px;
+    width: 680px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .circle-one{
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    background-color: white;
+  }
+  
+  .circle-two{
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    margin-left: 16px;
+  }
+  
+  .card-num{
+    font-weight: bold;
+    font-size: 40px;
+    margin: 74px 0 20px 0;
+  }
+  
+  .name-expd{
+    margin-top: 40px;
+    font-size: 40px;
+  }
+  
+  .cvv-number{
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin: 172px 40px 0 0;
+  }
+  
+
+  .card-front{
+    border-radius: 20px;
+    z-index: 3;
+    height: 400px;
+    width: 660px;
+    margin: 290px 0 0 230px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 40px;
+  }
+  
+  .card-back{
+    border-radius: 20px;
+    z-index: 4;
+    height: 400px;
+    width: 660px;
+    margin: 720px 0 0 320px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+  
+
+}
+
+
+@media screen and (max-width: 1440px){
+  .card-front{
+    border-radius: 8px;
+    z-index: 3;
+    height: 200px;
+    width: 360px;
+    margin: 180px 0 0 140px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 20px;
+  }
+  
+  .card-back{
+    border-radius: 8px;
+    z-index: 4;
+    height: 200px;
+    width: 360px;
+    margin: 395px 0 0 180px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+  
+
+}
+
+
+@media screen and (max-width: 1024px){
+  .card-front{
+    border-radius: 8px;
+    z-index: 3;
+    height: 200px;
+    width: 360px;
+    margin: 120px 0 0 60px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 20px;
+  }
+  
+  .card-back{
+    border-radius: 8px;
+    z-index: 4;
+    height: 200px;
+    width: 360px;
+    margin: 340px 0 0 110px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+  
+
+}
+
+
+
+
+
+@media screen and (max-width: 768px){
+
+
+  input{
+    height: 34px;
+    width: 260px;
+    font-size: medium;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    padding-left: 6px;
+    margin: 0 0 12px 0;
+    border: 1px rgba(170, 163, 163, 0.651) solid ;
+  }
+  
+  ::placeholder{
+    padding: 4px 0 4px 8px;
+    font-size: 12px;
+    color: rgba(170, 163, 163, 0.651);
+  }
+
+  
+
+  .align{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .smal{
+    height: 34px;
+    width: 120px;
+    color: rgba(0, 0, 0, 0.651);
+    padding:4px 0 4px 5px;
+    
+  }
+
+  #cvc{
+    margin-left: 0;
+  }
+
+
+  .btn{
+    height: 38px;
+    width: 260px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 16px;
+  }
+
+
+  .circle-one{
+    height: 22px;
+    width: 22px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 5px;
+  }
+  
+  .card-num{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 44px 0 10px 0;
+  }
+  
+  .name-expd{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    letter-spacing: 1px;
+  }
+  
+  .cvv-number{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 62px 20px 0 0;
+  }
+
+  .circle-container{
+    margin-top: 8px;
+  }
+  
+
+  .crd-name, .expd{
+    font-size: 12px;
+  }
+
+  .card-front{
+    z-index: 3;
+    border-radius: 4px;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 160px 0 0 60px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 10px;
+  }
+  
+  .card-back{
+    border-radius: 4px;
+    z-index: 4;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 310px 0 0 100px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+
+}
+
+@media screen and (max-width: 425px){
+
+  .App{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100vw;
+  }
+
+  .second-half{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  input{
+    letter-spacing: 0.5px;
+  }
+
+  .circle-one{
+    height: 22px;
+    width: 22px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 5px;
+  }
+  
+  .card-num{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 44px 0 10px 0;
+  }
+  
+  .name-expd{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    letter-spacing: 1px;
+  }
+  
+  .cvv-number{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 62px 20px 0 0;
+  }
+
+  .circle-container{
+    margin-top: 8px;
+  }
+  
+
+  .crd-name, .expd{
+    font-size: 12px;
+  }
+
+  .card-front{
+    z-index: 4;
+    border-radius: 4px;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 120px 0 0 60px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 10px;
+  }
+  
+  .card-back{
+    border-radius: 4px;
+    z-index: 3;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 40px 0 0 110px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+
+}
+
+
+@media screen and (max-width: 375px){
+
+  .App{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100vw;
+  }
+
+  .second-half{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  input{
+    letter-spacing: 0.5px;
+  }
+
+  .circle-one{
+    height: 22px;
+    width: 22px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 5px;
+  }
+  
+  .card-num{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 44px 0 10px 0;
+  }
+  
+  .name-expd{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    letter-spacing: 1px;
+  }
+  
+  .cvv-number{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 62px 20px 0 0;
+  }
+
+  .circle-container{
+    margin-top: 8px;
+  }
+  
+
+  .crd-name, .expd{
+    font-size: 12px;
+  }
+
+  .card-front{
+    z-index: 4;
+    border-radius: 4px;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 120px 0 0 40px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 10px;
+  }
+  
+  .card-back{
+    border-radius: 4px;
+    z-index: 3;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 40px 0 0 90px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+
+}
+
+@media screen and (max-width: 320px){
+
+  .App{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100vw;
+  }
+
+  .second-half{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .card-front{
+    z-index: 4;
+    border-radius: 4px;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 120px 0 0 20px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+    padding: 10px;
+  }
+  
+  .card-back{
+    border-radius: 4px;
+    z-index: 3;
+    height: 140px;
+    width: 240px;
+    position: fixed;
+    margin: 40px 0 0 60px;
+    box-shadow: 10px 10px 30px 2px rgba(130, 130, 130, 0.247);
+  }
+
+  input{
+    height: 38px;
+    width: 280px;
+    font-size: small;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    padding-left: 8px;
+    margin: 0 0 16px 0;
+    border: 1px rgba(170, 163, 163, 0.651) solid ;
+  }
+  
+  ::placeholder{
+    padding: 4px 0 4px 10px;
+    font-size: 12px;
+    color: rgba(170, 163, 163, 0.651);
+  }
+  
+  .circle-one{
+    height: 22px;
+    width: 22px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 5px;
+  }
+  
+  .card-num{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 44px 0 10px 0;
+  }
+  
+  .name-expd{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    letter-spacing: 1px;
+  }
+  
+  .cvv-number{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 62px 20px 0 0;
+  }
+
+  .circle-container{
+    margin-top: 8px;
+  }
+  
+
+  .crd-name, .expd{
+    font-size: 12px;
+  }
+} */
