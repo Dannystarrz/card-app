@@ -1,12 +1,11 @@
 import './App.css';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 
-export const Form = (props) => {
-
-    
+export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpiryYear, handleCvvNumber}) => {
 
     const schema = yup.object().shape({
         cardHolderName: yup.string()
@@ -70,7 +69,7 @@ export const Form = (props) => {
                 className={cardnameclassname}
                 type={"text"}
                 placeholder={"e.g Jane AppleSeed"}
-                onChange={props.handleInptChng}
+                onChange={handleInptChng}
                 {...register("cardHolderName")}
             />
             <p className='error'> {errors.cardHolderName?.message} </p>
@@ -80,7 +79,7 @@ export const Form = (props) => {
                 className={cardnumclassname}
                 type={"number"}
                 placeholder={"e.g 1234 5678 9123 0000"}
-                onChange={props.storeValues}
+                onChange={storeValues}
                 {...register("cardNumber", {
                     setValueAs: (v) => {
                         return v === "" ? undefined : parseInt(v, 10);
@@ -98,7 +97,7 @@ export const Form = (props) => {
                             className={monthInputs}
                             type={"number"}
                             placeholder={"MM"}
-                            onChange={props.containExpiryDay}
+                            onChange={containExpiryDay}
                             {...register("expMonth", {
                                 setValueAs: (v) => {
                                     return v === "" ? undefined : parseInt(v, 10);
@@ -110,7 +109,7 @@ export const Form = (props) => {
                             className={yearInputs}
                             type={"number"}
                             placeholder={"YY"}
-                            onChange={props.containExpiryYear}
+                            onChange={containExpiryYear}
                             {...register("expYear", {
                                 setValueAs: (v) => {
                                     return v === "" ? undefined : parseInt(v, 10);
@@ -127,7 +126,7 @@ export const Form = (props) => {
                         <input
                             className={cvcc}
                             type={"number"}
-                            onChange={props.handleCvvNumber}
+                            onChange={handleCvvNumber}
                             placeholder={"e.g 123"}
                             {...register("cvc", {
                                 setValueAs: (v) => {

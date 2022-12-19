@@ -10,7 +10,6 @@ function App() {
   const [inputValue, setInputValue] = useState("JANE APPLESEED");
   const handleInptChng = (event) => {
     setInputValue(console.log(event.target.value));
-    
   }
   // useState for Card number
   const [cardNumber, setCardNumber] = useState('0000 0000 0000 0000')
@@ -27,7 +26,6 @@ function App() {
       <span>{[numbersArray[12], numbersArray[13], numbersArray[14], numbersArray[15]]}</span>
     </div>
     )
-
   }
 
   // Use state for Expiry date
