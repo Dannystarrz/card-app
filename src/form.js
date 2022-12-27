@@ -1,37 +1,38 @@
 import './App.css';
-import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from 'react-router-dom';
 
 
 export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpiryYear, handleCvvNumber}) => {
 
+    const navigate = useNavigate();
+    
     const schema = yup.object().shape({
         cardHolderName: yup.string()
             .required("can't be blank")
-            .matches(/^[a-z]+$/, "wrong format, letters only"),
+            .matches(/^[A-Za-z\s]*$/, "wrong format, letters only"),
         cardNumber: yup.string()
-            .matches(/^[0-9]+$/, "Must be only digits")
             .required("can't be blank")
+            .matches(/^[0-9]+$/, "Must be only digits")
             .min(16, "card number length must be 16")
             .max(16, "card number length can't exceed 16"),
         expMonth: yup.number()
+            .required("can't be blank")
             .typeError("wrong format, numbers only")
-            .max(12, "invalid month")
+            .min(1, "invalid month")
+            .max(12, "invalid month"),
+        expYear: yup.number()
             .required("can't be blank")
-            .positive("invalid format")
-            .integer("must be whole number"),
-        expYear: yup.string()
-            .matches(/^[0-9]+$/, "wrong format, numbers only")
-            .min(2, "year not available")
-            .max(2, "year not avaliable")
-            .required("can't be blank"),
-        cvc: yup.string()
-            .matches(/^[0-9]+$/, "wrong format, numbers only")
-            .min(3, "invalid cvc")
-            .max(3, "invalid cvc")
+            .typeError("wrong format, numbers only")
+            .min(20, "year not available")
+            .max(70, "year not avaliable"),
+        cvc: yup.number()
             .required("can't be blank")
+            .typeError("wrong format, numbers only")
+            .min(100, "invalid cvc")
+            .max(999, "invalid cvc")
 
     });
 
@@ -44,6 +45,7 @@ export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpi
     const onSubmit = (data) => {
         console.log(data);
         reset();
+        navigate("/Thankyou");
     };
 
     let cardnameclassname = "inputs";
@@ -69,8 +71,7 @@ export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpi
                 className={cardnameclassname}
                 type={"text"}
                 placeholder={"e.g Jane AppleSeed"}
-                onChange={handleInptChng}
-                {...register("cardHolderName")}
+                {...register("cardHolderName",{onChange:handleInptChng})}
             />
             <p className='error'> {errors.cardHolderName?.message} </p>
 
@@ -79,11 +80,11 @@ export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpi
                 className={cardnumclassname}
                 type={"number"}
                 placeholder={"e.g 1234 5678 9123 0000"}
-                onChange={storeValues}
                 {...register("cardNumber", {
                     setValueAs: (v) => {
                         return v === "" ? undefined : parseInt(v, 10);
-                    }
+                    },
+                    onChange:storeValues
                 })}
             />
             <p className='error'> {errors.cardNumber?.message} </p>
@@ -97,23 +98,23 @@ export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpi
                             className={monthInputs}
                             type={"number"}
                             placeholder={"MM"}
-                            onChange={containExpiryDay}
                             {...register("expMonth", {
                                 setValueAs: (v) => {
                                     return v === "" ? undefined : parseInt(v, 10);
-                                }
+                                },
+                                onChange:containExpiryDay,
                             })}
-                        />
+                            />
 
                         <input
                             className={yearInputs}
                             type={"number"}
                             placeholder={"YY"}
-                            onChange={containExpiryYear}
                             {...register("expYear", {
                                 setValueAs: (v) => {
                                     return v === "" ? undefined : parseInt(v, 10);
-                                }
+                                },
+                                onChange:containExpiryYear,
                             })}
                         />
                     </div>
@@ -126,12 +127,12 @@ export const Form = ({handleInptChng, storeValues, containExpiryDay, containExpi
                         <input
                             className={cvcc}
                             type={"number"}
-                            onChange={handleCvvNumber}
                             placeholder={"e.g 123"}
                             {...register("cvc", {
                                 setValueAs: (v) => {
                                     return v === "" ? undefined : parseInt(v, 10);
-                                }
+                                },
+                                onChange:handleCvvNumber,
                             })}
                         />
                         <p className='error'> {errors.cvc?.message} </p>

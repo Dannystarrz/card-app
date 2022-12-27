@@ -1,6 +1,8 @@
 import './App.css';
 import { Form } from "./form";
+import { Thankyou } from "./Thankyou";
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
@@ -9,7 +11,7 @@ function App() {
   // use state for Card Holder name
   const [inputValue, setInputValue] = useState("JANE APPLESEED");
   const handleInptChng = (event) => {
-    setInputValue(console.log(event.target.value));
+    setInputValue(event.target.value);
   }
   // useState for Card number
   const [cardNumber, setCardNumber] = useState('0000 0000 0000 0000')
@@ -46,32 +48,39 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className='first-half'></div>
-      <div className='second-half'>
-          <Form 
-          handleInptChng={handleInptChng}
-          storeValues={storeValues}
-          containExpiryDay={containExpiryDay}
-          containExpiryYear={containExpiryYear}
-          handleCvvNumber={handleCvvNumber}
-          />
+    <Router>
+      <div className="App">
+        <div className='first-half'></div>
+        <div className='second-half'>
+          <Routes>
+            <Route path='/card-app'
+            element={
+              <Form
+                handleInptChng={handleInptChng}
+                storeValues={storeValues}
+                containExpiryDay={containExpiryDay}
+                containExpiryYear={containExpiryYear}
+                handleCvvNumber={handleCvvNumber}
+              />}/>
+            <Route exact path='/Thankyou' element={<Thankyou />}/>
+          </Routes>
+        </div >
+        <div className='card-front'>
+          <div className='circle-container'>
+            <div className='circle-one'></div>
+            <div className='circle-two'></div>
+          </div>
+          <p className='card-num'> {cardNumber} </p>
+          <div className='name-expd'>
+            <p className='crd-name'> {inputValue} </p>
+            <p className='expd'> {expiryDay}/{expiryYear} </p>
+          </div>
+        </div>
+        <div className='card-back'>
+          <p className='cvv-number'> {cvvNumber} </p>
+        </div>
       </div >
-      <div className='card-front'>
-        <div className='circle-container'>
-          <div className='circle-one'></div>
-          <div className='circle-two'></div>
-        </div>
-        <p className='card-num'> {cardNumber} </p>
-        <div className='name-expd'>
-          <p className='crd-name'> {inputValue} </p>
-          <p className='expd'> {expiryDay}/{expiryYear} </p>
-        </div>
-      </div>
-      <div className='card-back'>
-        <p className='cvv-number'> {cvvNumber} </p>
-      </div>
-    </div >
+    </Router>
   );
 };
 
