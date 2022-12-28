@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: spaceGrotesk;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .App{
@@ -231,7 +233,402 @@ label{
   margin: 92px 40px 0 0;
 }
 
-@font-face{
-  font-family: spaceGrotesk;
-  src: url(https://fonts.google.com/specimen/Space+Grotesk);
+@media all and (min-width: 2560px) {
+
+label{
+  font-size: 30px;
+}
+
+.inputs{
+  height: 88px;
+  width: 680px;
+  padding: 10px;
+  font-size: 28px;
+  border-radius: 12px;
+}
+
+::placeholder{
+  padding: 8px 0 8px 14px;
+  font-size: 28px;
+}
+
+.dateCvcLabel{
+  height: 33px;
+  margin-bottom: 10px;
+}
+  
+.dateContainer{
+  width: 338px;
+}
+
+.dateinputs{
+  width: 160px;
+  height: 88px;
+  border-radius: 12px;
+  font-size: 28px;
+}
+
+.cvcinput{
+  width: 332px;
+  height: 88px;
+  font-size: 28px;
+  border-radius: 12px;
+}
+
+.btn{
+  height: 88px;
+  width: 680px;
+  border-radius: 12px;
+  font-size: 30px;
+}
+
+.card-front{
+  border-radius: 20px;
+  height: 400px;
+  width: 660px;
+  margin: 280px 0 0 380px;
+  padding: 60px;
+}
+
+.card-back{
+  border-radius: 20px;
+  height: 400px;
+  width: 660px;
+  margin: 720px 0 0 490px;
+  padding: 60px;
+  }
+
+  .circle-one{
+  height: 80px;
+  width: 80px;
+}
+
+.circle-two{
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+}
+
+.card-num{
+  font-weight: bold;
+  font-size: 34px;
+  letter-spacing: 4px;
+  margin: 104px 0 40px 0;
+}
+
+.name-expd{
+  font-size: 24px;
+}
+
+.cvv-number{
+  font-size: 28px;
+  margin: 122px 10px 0 0;
+}
+
+.thanks{
+  margin: 0 0 40px;
+  font-size: 34px;
+}
+
+.checkMark{
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 40px auto ;
+}
+
+}
+
+
+@media all and (max-width: 1200px){
+
+  .card-front{
+    margin: 118px 0 0 98px;
+  }
+  
+  .card-back{
+    margin: 368px 0 0 198px;
+  }
+}
+
+@media all and (max-width: 1024px){
+
+  .card-front{
+    height: 158px;
+    width: 272px;
+    margin: 104px 0 0 98px;
+  }
+  
+  .card-back{
+    height: 158px;
+    width: 272px;
+    margin: 280px 0 0 160px;
+  }
+
+  .circle-one{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+  }
+
+  .card-num{
+    font-size: 12px;
+    margin: 32px 0 16px 0;
+    letter-spacing: 3.5px;
+  }
+  
+  .name-expd{
+    font-size: 11px;
+  }
+  
+  .cvv-number{
+    font-size: 11px;
+    margin: 70px 26px 0 0;
+  }
+}
+
+@media all and (max-width: 768px){
+
+  .App{
+    display: flex;
+  }
+
+  .first-half{
+    height: 100vh;
+    width: 30%;
+  }
+  
+  .second-half{
+    height: 100vh;
+    width: 70%;
+  }
+
+  .card-front{
+    z-index: 3;
+    position: fixed;
+    border-radius: 4px;
+    height: 158px;
+    width: 272px;
+    margin: 105px 0 0 25px;
+    padding: 20px;
+  }
+  
+  .card-back{
+    z-index: 4;
+    height: 158px;
+    border-radius: 4px;
+    width: 272px;
+    margin: 280px 0 0 56px;
+  }
+
+  .circle-one{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+  }
+
+  .card-num{
+    font-size: 12px;
+    margin: 32px 0 16px 0;
+    letter-spacing: 3.5px;
+  }
+  
+  .name-expd{
+    font-size: 11px;
+  }
+  
+  .cvv-number{
+    font-size: 11px;
+    margin: 70px 26px 0 0;
+  }
+}
+
+@media all and (max-width: 425px){
+
+  .App{
+    display: grid;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100%;
+  }
+  
+  .second-half{
+    height: 60vh;
+    width: 100%;
+  }
+
+  .card-front{
+    z-index: 4;
+    position: fixed;
+    border-radius: 4px;
+    height: 142px;
+    width: 254px;
+    margin: 105px 0 0 53px;
+  }
+  
+  .card-back{
+    z-index: 3;
+    height: 142px;
+    border-radius: 4px;
+    width: 254px;
+    margin: 25px 0 0 120px;
+  }
+
+  .circle-one{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+  }
+
+  .card-num{
+    font-size: 12px;
+    margin: 24px 0 16px 0;
+    letter-spacing: 3.5px;
+  }
+  
+  .name-expd{
+    font-size: 11px;
+  }
+  
+  .cvv-number{
+    font-size: 11px;
+    margin: 62px 26px 0 0;
+  }
+}
+
+@media all and (max-width: 375px){
+
+  .App{
+    display: grid;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100%;
+  }
+  
+  .second-half{
+    height: 60vh;
+    width: 100%;
+  }
+
+  .card-front{
+    z-index: 4;
+    position: fixed;
+    border-radius: 4px;
+    height: 142px;
+    width: 254px;
+    margin: 105px 0 0 42px;
+  }
+  
+  .card-back{
+    z-index: 3;
+    height: 142px;
+    border-radius: 4px;
+    width: 254px;
+    margin: 25px 0 0 80px;
+  }
+
+  .circle-one{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+  }
+
+  .card-num{
+    font-size: 12px;
+    margin: 24px 0 16px 0;
+    letter-spacing: 3.5px;
+  }
+  
+  .name-expd{
+    font-size: 11px;
+  }
+  
+  .cvv-number{
+    font-size: 11px;
+    margin: 62px 26px 0 0;
+  }
+}
+
+@media all and (max-width: 320px){
+
+  .App{
+    display: grid;
+  }
+
+  .first-half{
+    height: 40vh;
+    width: 100%;
+  }
+  
+  .second-half{
+    height: 60vh;
+    width: 100%;
+  }
+
+  .card-front{
+    z-index: 4;
+    position: fixed;
+    border-radius: 4px;
+    height: 142px;
+    width: 254px;
+    margin: 105px 0 0 10px;
+    padding: 20px;
+  }
+  
+  .card-back{
+    z-index: 3;
+    height: 142px;
+    border-radius: 4px;
+    width: 254px;
+    margin: 25px 0 0 56px;
+  }
+
+  .circle-one{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circle-two{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+  }
+
+  .card-num{
+    font-size: 12px;
+    margin: 24px 0 16px 0;
+    letter-spacing: 3.5px;
+  }
+  
+  .name-expd{
+    font-size: 11px;
+  }
+  
+  .cvv-number{
+    font-size: 11px;
+    margin: 62px 26px 0 0;
+  }
 }
